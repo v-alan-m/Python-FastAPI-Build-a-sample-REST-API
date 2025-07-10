@@ -1,40 +1,160 @@
-# Build a Sample Python REST API using FastAPI
-A sample REST API using FastAPI with python
+# 🚀 Build a Sample Python REST API using FastAPI
 
-Script for when the input is done using query parameters (main_item_str.py)
+A simple example project demonstrating how to build a REST API using [FastAPI](https://fastapi.tiangolo.com/) in Python.
 
-To run the app run:
+---
+
+## 📄 Script 1 — Using Query Parameters (`main_item_str.py`)
+
+### ▶️ Run the App
+
+```bash
 uvicorn main_item_str:app --reload --no-use-colors
+```
 
-Curl test request example:
+### 🧪 Curl Test Examples
 
-Add items:
+#### ➕ Add Items
+
+[Input]:
+
+```bash
 curl -X POST "http://127.0.0.1:8000/items?item=apple"
+```
+
+[Output]:
+
+```json
 ["apple"]
+```
+
+[Input]:
+
+```bash
 curl -X POST "http://127.0.0.1:8000/items?item=orange"
-["apple","orange"]
+```
 
-Get items:
+[Output]:
+
+```json
+["apple", "orange"]
+```
+
+#### 📦 Get Items by Index
+
+[Input]:
+
+```bash
 curl -X GET "http://127.0.0.1:8000/items/0"
+```
+
+[Output]:
+
+```json
 "apple"
+```
+
+[Input]:
+
+```bash
 curl -X GET "http://127.0.0.1:8000/items/1"
+```
+
+[Output]:
+
+```json
 "orange"
+```
+
+[Input]:
+
+```bash
 curl -X GET "http://127.0.0.1:8000/items/2"
+```
+
+[Output]:
+
+```json
 {"detail":"Item 2 not found"}
+```
+
+#### 📜 Get Items with Limit
+
+[Input]:
+
+```bash
 curl -X GET "http://127.0.0.1:8000/items?limit=2"
-["apple","orange"]
+```
+
+[Output]:
+
+```json
+["apple", "orange"]
+```
+
+[Input]:
+
+```bash
 curl -X GET "http://127.0.0.1:8000/items?limit=4"
-["apple","orange"]
+```
 
+[Output]:
 
-Script for when the input is done using a Pydantic type-object by using JSON input (main_item_object.py)
+```json
+["apple", "orange"]
+```
 
-To run the app run:
+---
+
+## 📄 Script 2 — Using Pydantic Object with JSON Input (`main_item_object.py`)
+
+### ▶️ Run the App
+
+```bash
 uvicorn main_item_object:app --reload --no-use-colors
+```
 
-Curl test request example:
+### 🧪 Curl Test Example
 
-Add items:
-curl -X POST -H "Content-Type: application/json" -d '{"text":"apple"}' "http://127.0.0.1:8000/items"
+#### ➕ Add Items
 
-Get items:
+[Input]:
+
+```bash
+curl -X POST -H "Content-Type: application/json" -d "{\"text\":\"apple\"}" "http://127.0.0.1:8000/items"
+```
+
+#### 📦 Get Items
+
+[Input]:
+
+```bash
+curl -X GET "http://127.0.0.1:8000/items"
+```
+
+[Output]:
+
+```json
+[{"text":"apple","is_done":false}]
+```
+
+[Input]:
+
+```bash
+curl -X GET "http://127.0.0.1:8000/items?limit=3"
+```
+
+[Output]:
+
+```json
+[{"text":"apple","is_done":false}]
+```
+
+## 📄 View the Endpoints in an Interactive page documentation (Swagger page)
+
+### ▶️ Acces the Swagger Page
+
+[Input]:
+
+```bash
+127.0.0.1/docs/```
