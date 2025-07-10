@@ -157,4 +157,5 @@ curl -X GET "http://127.0.0.1:8000/items?limit=3"
 [Input]:
 
 ```bash
-127.0.0.1/docs/```
+127.0.0.1/docs/
+```
