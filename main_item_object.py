@@ -1,3 +1,4 @@
+from typing import List
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from kill_old_ports_being_used import is_port_in_use, free_port_windows
@@ -25,12 +26,12 @@ def create_items(item: Item):
     return items
 
 
-@app.get("/items  ")
+@app.get("/items", response_model=List[Item])
 def list_items(limit: int = 10):
     return items[0:limit]
 
 
-@app.get("/items/{item_id}")
+@app.get("/items/{item_id}", response_model=Item)
 def get_item(item_id: int) -> Item:
     if item_id < len(items):
         return items[item_id]
