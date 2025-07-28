@@ -1,6 +1,6 @@
 # 🚀 Build a Sample Python REST API using FastAPI
 
-A simple example project demonstrating how to build a REST API using [FastAPI](https://fastapi.tiangolo.com/) in Python.
+A simple example project demonstrating how to build a REST API using FastAPI in Python.
 
 ---
 
