@@ -4,7 +4,7 @@ A simple example project demonstrating how to build a REST API using [FastAPI](h
 
 ---
 
-## 📄 Script 1 — Using Query Parameters (`main_item_str.py`)
+## 📄 Using Query Parameters (`main_item_str.py`)
 
 ### ▶️ Run the App
 
@@ -16,25 +16,25 @@ uvicorn main_item_str:app --reload --no-use-colors
 
 #### ➕ Add Items
 
-[Input]:
+- Input:
 
 ```bash
 curl -X POST "http://127.0.0.1:8000/items?item=apple"
 ```
 
-[Output]:
+- Output:
 
 ```json
 ["apple"]
 ```
 
-[Input]:
+- Input:
 
 ```bash
 curl -X POST "http://127.0.0.1:8000/items?item=orange"
 ```
 
-[Output]:
+- Output:
 
 ```json
 ["apple", "orange"]
@@ -42,37 +42,37 @@ curl -X POST "http://127.0.0.1:8000/items?item=orange"
 
 #### 📦 Get Items by Index
 
-[Input]:
+- Input:
 
 ```bash
 curl -X GET "http://127.0.0.1:8000/items/0"
 ```
 
-[Output]:
+- Output:
 
 ```json
 "apple"
 ```
 
-[Input]:
+- Input:
 
 ```bash
 curl -X GET "http://127.0.0.1:8000/items/1"
 ```
 
-[Output]:
+- Output:
 
 ```json
 "orange"
 ```
 
-[Input]:
+- Input:
 
 ```bash
 curl -X GET "http://127.0.0.1:8000/items/2"
 ```
 
-[Output]:
+- Output:
 
 ```json
 {"detail":"Item 2 not found"}
@@ -80,25 +80,25 @@ curl -X GET "http://127.0.0.1:8000/items/2"
 
 #### 📜 Get Items with Limit
 
-[Input]:
+- Input:
 
 ```bash
 curl -X GET "http://127.0.0.1:8000/items?limit=2"
 ```
 
-[Output]:
+- Output:
 
 ```json
 ["apple", "orange"]
 ```
 
-[Input]:
+- Input:
 
 ```bash
 curl -X GET "http://127.0.0.1:8000/items?limit=4"
 ```
 
-[Output]:
+- Output:
 
 ```json
 ["apple", "orange"]
@@ -106,7 +106,7 @@ curl -X GET "http://127.0.0.1:8000/items?limit=4"
 
 ---
 
-## 📄 Script 2 — Using Pydantic Object with JSON Input (`main_item_object.py`)
+## 📄 Using Pydantic Object with JSON Input (`main_item_object.py`)
 
 ### ▶️ Run the App
 
@@ -118,7 +118,7 @@ uvicorn main_item_object:app --reload --no-use-colors
 
 #### ➕ Add Items
 
-[Input]:
+- Input:
 
 ```bash
 curl -X POST -H "Content-Type: application/json" -d "{\"text\":\"apple\"}" "http://127.0.0.1:8000/items"
@@ -126,25 +126,25 @@ curl -X POST -H "Content-Type: application/json" -d "{\"text\":\"apple\"}" "http
 
 #### 📦 Get Items
 
-[Input]:
+- Input:
 
 ```bash
 curl -X GET "http://127.0.0.1:8000/items"
 ```
 
-[Output]:
+- Output:
 
 ```json
 [{"text":"apple","is_done":false}]
 ```
 
-[Input]:
+- Input:
 
 ```bash
 curl -X GET "http://127.0.0.1:8000/items?limit=3"
 ```
 
-[Output]:
+- Output:
 
 ```json
 [{"text":"apple","is_done":false}]
@@ -154,7 +154,7 @@ curl -X GET "http://127.0.0.1:8000/items?limit=3"
 
 ### ▶️ Acces the Swagger Page
 
-[Input]:
+- Input:
 
 ```bash
 127.0.0.1/docs/
